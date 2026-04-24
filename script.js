@@ -30,3 +30,34 @@ const K = getRandom(3, 8);
 // Centro del canvas
 const centerX = canvas.width / 2;
 const centerY = canvas.height / 2;
+/**
+ * Algoritmo de punto medio para circunferencias
+ */
+function midpointCircle(cx, cy, r, color = "#888") {
+    let x = 0;
+    let y = r;
+    let p = 1 - r;
+
+    while (x <= y) {
+
+        // 8 puntos simétricos
+        plotPixel(ctx, cx + x, cy + y, color);
+        plotPixel(ctx, cx - x, cy + y, color);
+        plotPixel(ctx, cx + x, cy - y, color);
+        plotPixel(ctx, cx - x, cy - y, color);
+        plotPixel(ctx, cx + y, cy + x, color);
+        plotPixel(ctx, cx - y, cy + x, color);
+        plotPixel(ctx, cx + y, cy - x, color);
+        plotPixel(ctx, cx - y, cy - x, color);
+
+        x++;
+
+        // decisión
+        if (p < 0) {
+            p += 2 * x + 1;
+        } else {
+            y--;
+            p += 2 * (x - y) + 1;
+        }
+    }
+}
