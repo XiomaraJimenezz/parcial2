@@ -2,12 +2,32 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Parcial 2 - Orbital</title>
+    <title>Parcial 2 - Sistema Orbital</title>
+
+    <style>
+        /* Centrar el canvas en la pantalla */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        canvas {
+            border: 1px solid #333;
+            background-color: white;
+        }
+    </style>
 </head>
 <body>
 
-<canvas id="canvas" width="600" height="600"></canvas>
+    <!-- Área de dibujo -->
+    <canvas id="canvas" width="600" height="600"></canvas>
 
-<script src="script.js"></script>
+    <!-- Script al final para asegurar que el canvas ya exista -->
+    <script src="script.js"></script>
+
 </body>
 </html>
