@@ -128,4 +128,19 @@ function getPolygonVertices(cx, cy, sides, size) {
     }
 
     return vertices;
+}/**
+ * Dibuja el polígono con Bresenham
+ */
+function drawPolygon(vertices) {
+    for (let i = 0; i < vertices.length; i++) {
+
+        let next = (i + 1) % vertices.length;
+
+        bresenhamLine(
+            vertices[i].x,
+            vertices[i].y,
+            vertices[next].x,
+            vertices[next].y
+        );
+    }
 }
