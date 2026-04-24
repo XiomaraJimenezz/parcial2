@@ -155,11 +155,13 @@ function drawScene() {
     // posiciones
     const positions = getOrbitalPositions(R, N);
 
-    // dibujar polígonos
-    positions.forEach(pos => {
-        const vertices = getPolygonVertices(pos.x, pos.y, K, 20);
-        drawPolygon(vertices);
-    });
+    // tamaño proporcional al radio (evita solapamientos)
+const size = R * 0.15;
+
+positions.forEach(pos => {
+    const vertices = getPolygonVertices(pos.x, pos.y, K, size);
+    drawPolygon(vertices);
+});
 }
 
 // ejecutar
