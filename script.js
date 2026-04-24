@@ -149,20 +149,17 @@ function drawPolygon(vertices) {
  */
 function drawScene() {
 
-    // órbita
+    // 1. Dibujar órbita
     midpointCircle(centerX, centerY, R);
 
-    // posiciones
+    // 2. Calcular posiciones
     const positions = getOrbitalPositions(R, N);
 
-    // tamaño proporcional al radio (evita solapamientos)
-const size = R * 0.15;
-
-positions.forEach(pos => {
-    const vertices = getPolygonVertices(pos.x, pos.y, K, size);
-    drawPolygon(vertices);
-});
+    // 3. Dibujar polígonos
+    positions.forEach(pos => {
+        const vertices = getPolygonVertices(pos.x, pos.y, K, size);
+        drawPolygon(vertices);
+    });
 }
-
 // ejecutar
 drawScene();
