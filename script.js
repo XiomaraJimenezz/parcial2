@@ -11,7 +11,7 @@ const ctx = canvas.getContext("2d");
 /**
  * Función básica para pintar un píxel
  */
-function plotPixel(ctx, x, y, color = "#000") {
+function plotPixel(ctx, x, y, color = "#1a1a1a") {
     ctx.fillStyle = color;
     ctx.fillRect(Math.floor(x), Math.floor(y), 1, 1);
 }
@@ -52,7 +52,8 @@ function midpointCircle(cx, cy, r, color = "#888") {
 
         x++;
 
-        // p decide si el siguiente punto se mantiene o desciende en y
+        // p es el parámetro de decisión que indica si el punto medio
+// está dentro o fuera de la circunferencia
 if (p < 0) {
             p += 2 * x + 1;
         } else {
@@ -64,6 +65,7 @@ if (p < 0) {
 /**
  * Algoritmo de Bresenham
  */
+// err es el parámetro de decisión que indica cuándo cambiar en x o y
 function bresenhamLine(x0, y0, x1, y1, color = "#000") {
 
     let dx = Math.abs(x1 - x0);
@@ -94,7 +96,10 @@ function bresenhamLine(x0, y0, x1, y1, color = "#000") {
     }
 }
 /**
- * Calcula posiciones sobre la circunferencia
+ * Retorna los centros donde se ubicarán los polígonos
+ * @param {number} r - radio de la órbita
+ * @param {number} n - cantidad de polígonos
+ * @returns {Array} arreglo de objetos {x, y}
  */
 function getOrbitalPositions(r, n) {
     let positions = [];
@@ -137,11 +142,12 @@ function drawPolygon(vertices) {
         let next = (i + 1) % vertices.length;
 
         bresenhamLine(
-            vertices[i].x,
-            vertices[i].y,
-            vertices[next].x,
-            vertices[next].y
-        );
+    vertices[i].x,
+    vertices[i].y,
+    vertices[next].x,
+    vertices[next].y,
+    "#000"
+);
     }
 }
 /**
@@ -155,7 +161,7 @@ function drawScene() {
     // 2. Calcular posiciones
     const positions = getOrbitalPositions(R, N);
 
-    // ✅ SOLUCIÓN
+    //  SOLUCIÓN
     const size = R * 0.15;
 
     // 3. Dibujar polígonos
