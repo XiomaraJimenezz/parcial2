@@ -111,3 +111,21 @@ function getOrbitalPositions(r, n) {
 
     return positions;
 }
+/**
+ * Genera los vértices de un polígono
+ */
+function getPolygonVertices(cx, cy, sides, size) {
+    let vertices = [];
+
+    for (let i = 0; i < sides; i++) {
+
+        let angle = (2 * Math.PI * i) / sides;
+
+        let x = cx + size * Math.cos(angle);
+        let y = cy + size * Math.sin(angle);
+
+        vertices.push({ x, y });
+    }
+
+    return vertices;
+}
