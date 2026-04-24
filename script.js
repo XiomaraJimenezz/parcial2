@@ -144,3 +144,23 @@ function drawPolygon(vertices) {
         );
     }
 }
+/**
+ * Dibuja toda la escena
+ */
+function drawScene() {
+
+    // órbita
+    midpointCircle(centerX, centerY, R);
+
+    // posiciones
+    const positions = getOrbitalPositions(R, N);
+
+    // dibujar polígonos
+    positions.forEach(pos => {
+        const vertices = getPolygonVertices(pos.x, pos.y, K, 20);
+        drawPolygon(vertices);
+    });
+}
+
+// ejecutar
+drawScene();
