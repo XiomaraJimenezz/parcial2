@@ -93,3 +93,21 @@ function bresenhamLine(x0, y0, x1, y1, color = "#000") {
         }
     }
 }
+/**
+ * Calcula posiciones sobre la circunferencia
+ */
+function getOrbitalPositions(r, n) {
+    let positions = [];
+
+    for (let i = 0; i < n; i++) {
+
+        let angle = (2 * Math.PI * i) / n;
+
+        let x = centerX + r * Math.cos(angle);
+        let y = centerY + r * Math.sin(angle);
+
+        positions.push({ x, y });
+    }
+
+    return positions;
+}
