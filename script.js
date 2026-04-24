@@ -52,8 +52,8 @@ function midpointCircle(cx, cy, r, color = "#888") {
 
         x++;
 
-        // decisión
-        if (p < 0) {
+        // p decide si el siguiente punto se mantiene o desciende en y
+if (p < 0) {
             p += 2 * x + 1;
         } else {
             y--;
