@@ -155,6 +155,9 @@ function drawScene() {
     // 2. Calcular posiciones
     const positions = getOrbitalPositions(R, N);
 
+    // ✅ SOLUCIÓN
+    const size = R * 0.15;
+
     // 3. Dibujar polígonos
     positions.forEach(pos => {
         const vertices = getPolygonVertices(pos.x, pos.y, K, size);
@@ -163,3 +166,4 @@ function drawScene() {
 }
 // ejecutar
 drawScene();
+console.log("R:", R, "N:", N, "K:", K);
